@@ -9,7 +9,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pacientes")
 public class PacienteController {
-
     @Autowired
     private PacienteService pacienteService;
 
@@ -21,5 +20,13 @@ public class PacienteController {
     @PostMapping
     public Paciente crearPaciente(@RequestBody Paciente paciente) {
         return pacienteService.guardarPaciente(paciente);
+    }
+
+@GetMapping("/{id}")
+    public Paciente obtenerPorId(@PathVariable Long id) {
+        return pacienteService.obtenerTodos().stream()
+                .filter(p -> p.getIdPaciente().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Paciente no encontrado"));
     }
 }

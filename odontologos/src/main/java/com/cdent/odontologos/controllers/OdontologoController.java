@@ -9,7 +9,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/odontologos")
 public class OdontologoController {
-
     @Autowired
     private OdontologoService odontologoService;
 
@@ -21,5 +20,13 @@ public class OdontologoController {
     @PostMapping
     public Odontologo crearOdontologo(@RequestBody Odontologo odontologo) {
         return odontologoService.guardarOdontologo(odontologo);
+    }
+
+    @GetMapping("/{id}")
+    public Odontologo obtenerPorId(@PathVariable Long id) {
+        return odontologoService.obtenerTodos().stream()
+                .filter(o -> o.getIdOdontologo().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Odontólogo no encontrado"));
     }
 }

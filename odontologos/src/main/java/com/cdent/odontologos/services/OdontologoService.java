@@ -8,7 +8,6 @@ import java.util.List;
 
 @Service
 public class OdontologoService {
-
     @Autowired
     private OdontologoRepository odontologoRepository;
 

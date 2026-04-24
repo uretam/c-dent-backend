@@ -25,7 +25,7 @@ public class Odontologo {
     private String apellidos;
 
     @Column(nullable = false)
-    private String especialidad; // Ej: General, Ortodoncia, Endodoncia
+    private String especialidad;
 
     private String email;
     private String telefono;
