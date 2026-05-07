@@ -1,0 +1,66 @@
+server:
+  port: 9090
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # 1. Ruta para Pacientes
+        - id: pacientes-service
+          uri: http://localhost:9091
+          predicates:
+            - Path=/api/pacientes/**
+
+        # 2. Ruta para Odontologos
+        - id: odontologos-service
+          uri: http://localhost:9092
+          predicates:
+            - Path=/api/odontologos/**
+
+        # 3. Ruta para Citas
+        - id: citas-service
+          uri: http://localhost:9093
+          predicates:
+            - Path=/api/citas/**
+
+        # 4. Ruta para Usuarios
+        - id: usuarios-service
+          uri: http://localhost:9094
+          predicates:
+            - Path=/api/usuarios/**
+
+        # 5. Ruta para Tratamientos
+        - id: tratamientos-service
+          uri: http://localhost:9095
+          predicates:
+            - Path=/api/tratamientos/**
+
+        # 6. Ruta para Fichas Medicas
+        - id: fichas-medicas-service
+          uri: http://localhost:9096
+          predicates:
+            - Path=/api/fichas/**
+
+        # 7. Ruta para Facturacion
+        - id: facturacion-service
+          uri: http://localhost:9097
+          predicates:
+            - Path=/api/facturacion/**
+
+        # 8. Ruta para Inventario
+        - id: inventario-service
+          uri: http://localhost:9098
+          predicates:
+            - Path=/api/inventario/**
+
+        # 9. Ruta para Reportes
+        - id: reportes-service
+          uri: http://localhost:9099
+          predicates:
+            - Path=/api/reportes/**
+
+        # 10. Ruta para Notificaciones
+        - id: notificaciones-service
+          uri: http://localhost:9100
+          predicates:
+            - Path=/api/notificaciones/**
