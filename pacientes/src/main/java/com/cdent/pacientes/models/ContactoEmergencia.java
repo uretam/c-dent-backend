@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "contactos_emergencia")
@@ -25,5 +26,6 @@ public class ContactoEmergencia {
 
     @ManyToOne
     @JoinColumn(name = "id_paciente", nullable = false)
+    @JsonIgnore
     private Paciente paciente;
 }
